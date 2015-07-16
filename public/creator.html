@@ -21,7 +21,7 @@
                         if (hashpattern !== null) {
                             $.getJSON(hashpattern[2], function(data) {
                                 freeboard.loadDashboard(data, function() {
-                                    freeboard.setEditing(false);
+                                    freeboard.setEditing(true);
                                 });
                             });
                         }
