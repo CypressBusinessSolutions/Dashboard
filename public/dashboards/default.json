@@ -1,0 +1,44 @@
+{
+	"version": 1,
+	"allow_edit": false,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "Order Processing",
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "New Orders",
+						"size": "big",
+						"value": "datasources[\"SystemCounts\"][\"data\"][\"DAILYORDER\"][\"count\"]",
+						"animate": true,
+						"units": ""
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "SystemCounts",
+			"type": "JSON",
+			"settings": {
+				"url": "/Service/JSON/COUNTS_RPT",
+				"use_thingproxy": false,
+				"refresh": 5,
+				"method": "GET",
+				"name": "SystemCounts"
+			}
+		}
+	],
+	"columns": 3
+}
