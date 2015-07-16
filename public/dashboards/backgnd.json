@@ -1,0 +1,190 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "Orders Process",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 1,
+				"4": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Daily Orders",
+						"size": "big",
+						"value": "datasources[\"System Counts\"][\"data\"][\"DAILYORDER\"][\"count\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Import Orders",
+						"size": "big",
+						"value": "datasources[\"System Counts\"][\"data\"][\"PENDINGIO\"][\"count\"]",
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "sparkline",
+					"settings": {
+						"title": "Flow",
+						"value": [
+							"datasources[\"System Counts\"][\"data\"][\"DAILYORDER\"][\"count\"]",
+							"datasources[\"System Counts\"][\"data\"][\"PENDINGIO\"][\"count\"]",
+							"datasources[\"System Counts\"][\"data\"][\"SHIPPED\"][\"count\"]"
+						],
+						"include_legend": true,
+						"legend": "Ordered,Unshipped,Shipped"
+					}
+				}
+			]
+		},
+		{
+			"title": "Process Flow",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 2,
+				"4": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Ready to Print",
+						"size": "big",
+						"value": "datasources[\"System Counts\"][\"data\"][\"READYORDER\"][\"count\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Printed But Unshipped ",
+						"size": "big",
+						"value": "datasources[\"System Counts\"][\"data\"][\"UNSHIPPED\"][\"count\"]",
+						"animate": true,
+						"units": "Tickets"
+					}
+				},
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Printed/Shipped",
+						"value": "datasources[\"System Counts\"][\"data\"][\"PTSHIP\"][\"count\"]",
+						"units": "% of Tickets",
+						"min_value": 0,
+						"max_value": 100
+					}
+				}
+			]
+		},
+		{
+			"title": "Backgroup Process",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 3,
+				"4": 4
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Credit Cards",
+						"size": "big",
+						"value": "datasources[\"JOBS\"][\"data\"][\"CCP\"][\"state\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"size": "regular",
+						"value": "datasources[\"JOBS\"][\"data\"][\"CCP\"][\"status\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Create Orders",
+						"size": "big",
+						"value": "datasources[\"JOBS\"][\"data\"][\"CORD\"][\"state\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"size": "regular",
+						"value": "datasources[\"JOBS\"][\"data\"][\"CORD\"][\"status\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Pick Ticket Verification",
+						"size": "big",
+						"value": "datasources[\"JOBS\"][\"data\"][\"PTVERIFY\"][\"state\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"size": "regular",
+						"value": "datasources[\"JOBS\"][\"data\"][\"PTVERIFY\"][\"status\"]",
+						"animate": true
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "System Counts",
+			"type": "JSON",
+			"settings": {
+				"url": "/Service/JSON/COUNTS_RPT",
+				"use_thingproxy": true,
+				"refresh": 5,
+				"method": "GET",
+				"name": "System Counts"
+			}
+		},
+		{
+			"name": "JOBS",
+			"type": "JSON",
+			"settings": {
+				"url": "/Service/JSON/BACKGND_JOBS_RPT",
+				"use_thingproxy": true,
+				"refresh": 30,
+				"method": "GET"
+			}
+		}
+	],
+	"columns": 3
+}
