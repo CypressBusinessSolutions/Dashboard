@@ -19,6 +19,6 @@ if exist npm.cmd (
 popd
 endlocal
 
-lessc freeboard.less > freeboard.css
+lessc freeboard_custom.less > freeboard_custom.css
 
 pause

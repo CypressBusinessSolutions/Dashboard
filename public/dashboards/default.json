@@ -1,0 +1,275 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "Order Processing",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 1,
+				"4": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "New Orders",
+						"size": "big",
+						"value": "datasources[\"OrderCounts\"][\"data\"][\"DAILYORDER\"][\"count\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": ""
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Import Order",
+						"size": "regular",
+						"value": "datasources[\"OrderCounts\"][\"data\"][\"PENDINGIO\"][\"count\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Ready",
+						"size": "regular",
+						"value": "datasources[\"OrderCounts\"][\"data\"][\"READYORDER\"][\"count\"]",
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Shipped",
+						"size": "regular",
+						"value": "datasources[\"OrderCounts\"][\"data\"][\"SHIPPED\"][\"count\"]",
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Flow",
+						"value": "datasources[\"OrderCounts\"][\"data\"][\"PRTSHIPPED\"][\"count\"]",
+						"min_value": "0",
+						"max_value": "100"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Printed",
+						"size": "regular",
+						"value": "datasources[\"OrderCounts\"][\"data\"][\"PRINTEDTCK\"][\"count\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": "Tickets"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Shipped",
+						"size": "regular",
+						"value": "datasources[\"OrderCounts\"][\"data\"][\"SHIPTICKET\"][\"count\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": "Tickets"
+					}
+				}
+			]
+		},
+		{
+			"title": "Operation",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 3,
+				"4": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Logged In",
+						"size": "regular",
+						"value": "datasources[\"SystemCounts\"][\"data\"][\"USERS\"][\"count\"]",
+						"animate": true,
+						"units": "Users"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Credit Card",
+						"size": "regular",
+						"value": "datasources[\"Background\"][\"data\"][\"CCP\"][\"state\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Verification",
+						"size": "regular",
+						"value": "datasources[\"Background\"][\"data\"][\"PTVERIFY\"][\"status\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Messaging",
+						"size": "regular",
+						"value": "datasources[\"Background\"][\"data\"][\"MSG2\"][\"status\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Create Orders",
+						"size": "regular",
+						"value": "datasources[\"Background\"][\"data\"][\"CREATEORD\"][\"state\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"size": "regular",
+						"value": "datasources[\"Background\"][\"data\"][\"CREATEORD\"][\"status\"]",
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"title": "Order Holds",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 2,
+				"4": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "New Orders Hold",
+						"value": "datasources[\"Holds\"][\"data\"][\"NEWHOLD\"][\"count\"]",
+						"units": "Percent New Order Still On Hold",
+						"min_value": 0,
+						"max_value": 100
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Orders On Hold",
+						"size": "regular",
+						"value": "datasources[\"Holds\"][\"data\"][\"ONHOLD\"][\"count\"]",
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "New RX",
+						"size": "regular",
+						"value": "datasources[\"Holds\"][\"data\"][\"HOLD_NRX\"][\"count\"]",
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Auto Hold",
+						"size": "regular",
+						"value": "datasources[\"Holds\"][\"data\"][\"HOLD_AH\"][\"count\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": "Orders"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "Process Hold",
+						"size": "regular",
+						"value": "datasources[\"Holds\"][\"data\"][\"HOLD_PH\"][\"count\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": "Orders"
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "OrderCounts",
+			"type": "JSON",
+			"settings": {
+				"url": "/Service/JSON/COUNTS_RPT/ORDER",
+				"use_thingproxy": false,
+				"refresh": 5,
+				"method": "GET",
+				"name": "OrderCounts"
+			}
+		},
+		{
+			"name": "SystemCounts",
+			"type": "JSON",
+			"settings": {
+				"url": "/Service/JSON/COUNTS_RPT/SYSTEM",
+				"use_thingproxy": false,
+				"refresh": 60,
+				"method": "GET"
+			}
+		},
+		{
+			"name": "Background",
+			"type": "JSON",
+			"settings": {
+				"url": "/Service/JSON/BACKGND_JOBS_RPT",
+				"use_thingproxy": true,
+				"refresh": 10,
+				"method": "GET"
+			}
+		},
+		{
+			"name": "Holds",
+			"type": "JSON",
+			"settings": {
+				"url": "/Service/JSON/COUNTS_RPT/HOLDS",
+				"use_thingproxy": true,
+				"refresh": 15,
+				"method": "GET"
+			}
+		}
+	],
+	"columns": 3
+}
